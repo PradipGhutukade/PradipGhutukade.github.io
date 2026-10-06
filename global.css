@@ -275,7 +275,7 @@ body {
 
 /* Hero Main Title */
 .hero-title {
-    font-family: var(--font-heading);
+    font-family: "Sofia+Sans";
     font-size: clamp(2.5rem, 4.2vw, 4.3rem);
     font-weight: 700;
     line-height: 1.14;
