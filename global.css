@@ -275,7 +275,7 @@ body {
 
 /* Hero Main Title */
 .hero-title {
-    font-family: "Sofia+Sans";
+    font-family: "Sofia Sans", sans-serif;
     font-size: clamp(2.5rem, 4.2vw, 4.3rem);
     font-weight: 700;
     line-height: 1.14;
@@ -284,6 +284,11 @@ body {
     color: #ffffff;
     margin-bottom: 1.8rem;
     text-wrap: balance;
+}
+
+/* Specific font for "PRODUCTS," */
+.hero-title .alt-font {
+    font-family: "Saira", sans-serif;
 }
 
 /* Hero Subtitle Description */
