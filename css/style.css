@@ -77,7 +77,7 @@ body.modal-open{overflow:hidden}
 .category-modal__nav button:hover,.category-modal__nav button[aria-current="page"]{border-color:#ffffff40;background:#ffffff12;color:#fff}
 .category-modal__nav small{display:block;color:#a4adad;font-size:.55rem;margin-top:3px}
 .category-modal__nav-icon{width:30px;height:30px;flex:none;display:grid;place-items:center;border:1px solid #ffffff55;border-radius:50%;font-size:.82rem}
-.category-modal__results{min-width:0;overflow:auto;align-content:start;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;padding:0 2px 4px}
+.category-modal__results{min-width:0;overflow:auto;align-content:start;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:max-content;gap:12px;padding:0 2px 4px}
 .project-tile{position:relative;min-width:0;aspect-ratio:2/2.9;overflow:hidden;border:1px solid #ffffff55;border-radius:12px;background:#121a1d;color:#fff;cursor:pointer;text-align:left;font:inherit}
 .project-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s}
 .project-tile:hover img{transform:scale(1.045)}
