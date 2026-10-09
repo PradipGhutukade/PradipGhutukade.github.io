@@ -1,12 +1,29 @@
 # Portfolio — GitHub Pages
 
-## Add your work
-- Posters (portrait 9:16 JPG): `assets/img/projects/project-1.jpg`, `project-2.jpg`, `project-3.jpg`
-- Videos (MP4, H.264): `assets/video/project-1.mp4`, `project-2.mp4`, `project-3.mp4`
-- To add a project, copy an `<article class="card">` block in `index.html` and change the paths/title.
-- Keep each video under ~25 MB (GitHub's file limit is 100 MB; smaller loads faster).
+## Add projects
+
+Projects are grouped into five categories under [`assets/projects`](assets/projects). Each category displays up to six projects, discovered automatically by the site. No HTML or JavaScript changes are needed when adding a project.
+
+For each project, create the next numbered folder in its category and add:
+
+```
+assets/projects/<category>/project-01/
+  cover.jpg
+  video.mp4
+```
+
+Use the next free number, from `project-01` to `project-06`. The cover image and video must use those exact filenames. Recommended cover format is portrait JPG; videos should be MP4 (H.264). Keep videos below 25 MB where possible for faster loading. The gallery labels projects by slot number (for example, “Project 01”).
+
+Available category folders:
+
+- `motion-graphics-video`
+- `3d-product-animation`
+- `ai-video-generation-editing`
+- `architectural-visualization`
+- `product-design-visualization`
 
 ## Publish
-1. Push these files to a repo (e.g. `portfolio`).
-2. Settings → Pages → Deploy from branch → `main` / root.
-3. Your site goes live at `https://<username>.github.io/<repo>/`.
+
+1. Push these files to the repository.
+2. In GitHub, open Settings → Pages → Deploy from branch → `main` / root.
+3. The site is published at `https://<username>.github.io/<repo>/`.
