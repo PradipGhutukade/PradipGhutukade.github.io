@@ -4,6 +4,8 @@
 
 Projects are grouped into five categories under [`assets/projects`](assets/projects). Each category displays up to six projects, discovered automatically by the site. No HTML or JavaScript changes are needed when adding a project.
 
+Each category's card image is stored separately under `assets/category-covers/<category>/cover.jpg`. Replace that image to change the category card; it is independent from the project gallery covers.
+
 For each project, create the next numbered folder in its category and add:
 
 ```
