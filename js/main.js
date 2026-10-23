@@ -149,6 +149,13 @@
         role:'My Role: Video Editor & Motion Graphics Artist',
         deliverables:['Video Editing','Motion Graphics','Product Promotion','Visual Storytelling']
       };
+    }else if(category.id==='ai-video-generation-editing'&&project.id==='01'){
+      projectDetails={
+        title:'Your Business Has Its Own Ravana',
+        description:'Created an AI-powered Dussehra promotional video for WMS, using mythological visuals to represent nine digital business challenges. Combined AI-generated scenes, visual storytelling, and video editing to deliver a festive brand message: “Defeat the Digital Obstacles This Dussehra with WMS.”',
+        role:'My Role: AI Video Creator & Video Editor',
+        deliverables:['AI Video Generation','AI Visual Storytelling','Video Editing & Sequencing','Brand Promotional Video','Festival Campaign Content']
+      };
     }else if(category.id==='motion-graphics-video'&&project.id==='02'){
       projectDetails={
         title:'Project 02 | Hype Ball Pen',
@@ -183,6 +190,13 @@
         description:'Created a 3D product animation featuring Domino Dust-Free Erasers arranged in a domino-style sequence, combining colorful product graphics, engaging movement, and clean visuals to create a playful product showcase.',
         role:'My Role: 3D Product Animator & Video Editor',
         deliverables:['3D Product Animation','Product Visualization','Domino-Style Animation','Video Editing','Final Promotional Video']
+      };
+    }else if(category.id==='3d-product-animation'&&project.id==='05'){
+      projectDetails={
+        title:'Project 05 | Pod Eraser',
+        description:'Created a 3D product animation showcasing the Pod Eraser through detailed product visuals, smooth animation, and polished editing to present its design and appeal.',
+        role:'My Role: 3D Product Animator & Video Editor',
+        deliverables:['3D Product Animation','Product Visualization','Video Editing','Final Promotional Video']
       };
     }
     if(projectDetails){
