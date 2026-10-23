@@ -133,9 +133,11 @@
   var projectDetailsTitle=document.getElementById('project-details-title');
   var projectDeliverables=document.getElementById('project-deliverables');
   var role=modal.querySelector('.modal__role');
-  video.addEventListener('loadedmetadata',function(){
+  function showProjectViewer(){
     modal.classList.toggle('modal--landscape',video.videoWidth>video.videoHeight);
-  });
+    modal.hidden=false;
+    modal.querySelector('.modal__close').focus();
+  }
   function openProject(project,category,trigger){
     lastProjectTrigger=trigger;
     modal.classList.remove('modal--landscape');
@@ -206,14 +208,16 @@
       role.textContent='My role. '+category.role;
     }
     video.poster=project.cover;
+    video.onloadedmetadata=showProjectViewer;
+    video.onerror=showProjectViewer;
     video.src=project.video;
-    modal.hidden=false;
     document.body.classList.add('modal-open');
-    modal.querySelector('.modal__close').focus();
     video.play().catch(function(){});
   }
   function closeProject(){
     video.pause();
+    video.onloadedmetadata=null;
+    video.onerror=null;
     video.removeAttribute('src');
     video.removeAttribute('poster');
     video.load();
