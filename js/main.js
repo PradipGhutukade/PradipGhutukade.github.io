@@ -47,6 +47,7 @@
     var button=document.createElement('button');
     button.type='button';
     button.className='project-tile';
+    if(category.id==='ai-video-generation-editing')button.classList.add('project-tile--landscape');
     button.setAttribute('aria-label','Play '+project.title);
     var image=document.createElement('img');
     image.src=project.cover;
@@ -90,7 +91,7 @@
         var id=String(number).padStart(2,'0');
         var base='assets/projects/'+category.id+'/project-'+id+'/';
         checks.push(imageExists(base+'cover.jpg').then(function(exists){
-          return exists?{title:'Project '+id,cover:base+'cover.jpg',video:base+'video.mp4'}:null;
+          return exists?{id:id,title:'Project '+id,cover:base+'cover.jpg',video:base+'video.mp4'}:null;
         }));
       })(slot);
     }
@@ -129,13 +130,81 @@
   var projectTitle=document.getElementById('modal-title');
   var projectDescription=document.getElementById('project-description');
   var projectCategory=document.getElementById('project-category');
+  var projectDetailsTitle=document.getElementById('project-details-title');
+  var projectDeliverables=document.getElementById('project-deliverables');
   var role=modal.querySelector('.modal__role');
+  video.addEventListener('loadedmetadata',function(){
+    modal.classList.toggle('modal--landscape',video.videoWidth>video.videoHeight);
+  });
   function openProject(project,category,trigger){
     lastProjectTrigger=trigger;
-    projectTitle.textContent=project.title+' | '+category.title;
-    projectDescription.textContent='A '+category.title.toLowerCase()+' project created to bring the idea to life through polished visuals and considered storytelling.';
-    projectCategory.textContent=category.title;
-    role.textContent='My role. '+category.role;
+    modal.classList.remove('modal--landscape');
+    var projectDetails=null;
+    if(category.id==='motion-graphics-video'&&project.id==='01'){
+      projectDetails={
+        title:'Project 01 | Pixel Fineliner Pen',
+        description:'Created a product-focused promotional video for the Pixel Fineliner Pen, combining video editing, motion graphics, and polished visuals to highlight the product’s design and creative appeal.',
+        role:'My Role: Video Editor & Motion Graphics Artist',
+        deliverables:['Video Editing','Motion Graphics','Product Promotion','Visual Storytelling']
+      };
+    }else if(category.id==='motion-graphics-video'&&project.id==='02'){
+      projectDetails={
+        title:'Project 02 | Hype Ball Pen',
+        description:'Created a promotional product video for the You Got Hype Ball Pen, combining dynamic editing and motion graphics to highlight the pen’s design, features, and visual appeal.',
+        role:'My Role: Video Editor & Motion Graphics Artist',
+        deliverables:['Video Editing','Motion Graphics','Product Promotion','Visual Storytelling']
+      };
+    }else if(category.id==='3d-product-animation'&&project.id==='01'){
+      projectDetails={
+        title:'Project 01 | Official ISRO Series Ball Pen',
+        description:'Created a premium 3D product film for the officially licensed ISRO Series Ball Pen, combining realistic 3D visuals, detailed materials, refined lighting, and cinematic camera movements. Enhanced the final presentation through professional video editing and post-production to deliver a polished, engaging promotional film.',
+        role:'My Role: 3D Product Animator & Video Editor',
+        deliverables:['3D Product Modeling & Visualization','Realistic Materials & Lighting','Cinematic Camera Animation','3D Animation & Rendering','Video Editing & Sequencing','Color Grading & Post-Production','Final Promotional Video']
+      };
+    }else if(category.id==='3d-product-animation'&&project.id==='02'){
+      projectDetails={
+        title:'Project 02 | Gravity Ball Pen',
+        description:'Created a 3D product animation highlighting the Gravity Ball Pen’s design and details through realistic visuals and polished editing.',
+        role:'My Role: 3D Product Animator & Video Editor',
+        deliverables:['3D Product Animation','Video Editing','Final Promotional Video']
+      };
+    }else if(category.id==='3d-product-animation'&&project.id==='03'){
+      projectDetails={
+        title:'Project 03 | XO Click Gel Pen',
+        description:'Created a detailed 3D product animation showcasing the XO Click Gel Pen’s design and advanced tip mechanism, highlighting its fine details and mechanical functionality through realistic visuals and polished editing.',
+        role:'My Role: 3D Product Animator & Video Editor',
+        deliverables:['3D Product Animation','Mechanical Detail Visualization','Product Feature Showcase','Video Editing','Final Promotional Video']
+      };
+    }else if(category.id==='3d-product-animation'&&project.id==='04'){
+      projectDetails={
+        title:'Project 04 | Domino Dust-Free Eraser',
+        description:'Created a 3D product animation featuring Domino Dust-Free Erasers arranged in a domino-style sequence, combining colorful product graphics, engaging movement, and clean visuals to create a playful product showcase.',
+        role:'My Role: 3D Product Animator & Video Editor',
+        deliverables:['3D Product Animation','Product Visualization','Domino-Style Animation','Video Editing','Final Promotional Video']
+      };
+    }
+    if(projectDetails){
+      projectTitle.textContent=projectDetails.title;
+      projectDescription.textContent=projectDetails.description;
+      projectDetailsTitle.textContent='Deliverables';
+      projectCategory.hidden=true;
+      projectDeliverables.replaceChildren();
+      projectDetails.deliverables.forEach(function(deliverable){
+        var item=document.createElement('li');
+        item.textContent=deliverable;
+        projectDeliverables.appendChild(item);
+      });
+      projectDeliverables.hidden=false;
+      role.textContent=projectDetails.role;
+    }else{
+      projectTitle.textContent=project.title+' | '+category.title;
+      projectDescription.textContent='A '+category.title.toLowerCase()+' project created to bring the idea to life through polished visuals and considered storytelling.';
+      projectDetailsTitle.textContent='Project category';
+      projectCategory.textContent=category.title;
+      projectCategory.hidden=false;
+      projectDeliverables.hidden=true;
+      role.textContent='My role. '+category.role;
+    }
     video.poster=project.cover;
     video.src=project.video;
     modal.hidden=false;
@@ -148,6 +217,7 @@
     video.removeAttribute('src');
     video.removeAttribute('poster');
     video.load();
+    modal.classList.remove('modal--landscape');
     modal.hidden=true;
     if(lastProjectTrigger&&lastProjectTrigger.isConnected)lastProjectTrigger.focus();
     else categoryModal.querySelector('.category-modal__close').focus();
