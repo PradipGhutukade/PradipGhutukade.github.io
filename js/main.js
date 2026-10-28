@@ -198,6 +198,13 @@
         role:'My Role: 3D Product Animator & Video Editor',
         deliverables:['3D Product Animation','Product Visualization','Video Editing','Final Promotional Video']
       };
+    }else if(category.id==='3d-product-animation'&&project.id==='06'){
+      projectDetails={
+        title:'Project 06 | Flair Inky Grip Liquid Ink Fountain Pen',
+        description:'Created a premium 3D product animation for the Flair Inky Grip Liquid Ink Fountain Pen, showcasing its design and finish through realistic 3D visuals, detailed materials, refined lighting, and smooth camera movements. Enhanced the final presentation with professional video editing and post-production to create a polished product promotional film.',
+        role:'My Role: 3D Product Animator & Video Editor',
+        deliverables:['3D Product Visualization','Realistic Materials & Lighting','Camera Animation','3D Animation & Rendering','Video Editing & Sequencing','Color Grading & Post-Production','Final Promotional Video']
+      };
     }
     if(projectDetails){
       projectTitle.textContent=projectDetails.title;
